@@ -36,7 +36,7 @@ int main() {
         plik >> szerokosc >> wysokosc >> maksWartoscKoloru;
     } else {
         cerr << "Nieznany format pliku!" << endl;
-        plik.close(); // Zamknij plik przed wyjściem z programu w przypadku błędu
+        plik.close(); // Close the file before exiting the program in case of an error
         return 1;
     }
     cout << "Format pliku: " << format << endl;
