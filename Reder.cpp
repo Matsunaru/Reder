@@ -18,9 +18,8 @@ int main() {
     }
 
     string format;
-	std::string comment;
+	string comment;
 	int szerokosc, wysokosc;
-	int pixelValue;
     int maksWartoscKoloru;
 
 	getline(plik, format);
@@ -29,10 +28,8 @@ int main() {
         getline(plik, comment);
         plik >> szerokosc >> wysokosc;
     } else if (format == "P2" || format == "P5") { // Format PGM
-        getline(plik, comment);
         plik >> szerokosc >> wysokosc >> maksWartoscKoloru;
     } else if (format == "P3" || format == "P6") { // Format PPM
-        getline(plik, comment);
         plik >> szerokosc >> wysokosc >> maksWartoscKoloru;
     } else {
         cerr << "Nieznany format pliku!" << endl;
