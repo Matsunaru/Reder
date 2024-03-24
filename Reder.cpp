@@ -8,7 +8,7 @@ string filename;
 
 int main() {
     cout << "Podaj nazwe pliku: " << endl;
-    cin >> filename >>endl;
+    cin >> filename;
 
     ifstream plik(filename);
     if (!plik.is_open())
