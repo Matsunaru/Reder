@@ -11,11 +11,16 @@ using namespace std;
 string getFilenameFromUser();//geting user file name
 void processImageFile(const string& filename);//main logic of program
 void processHeaderAndPixels(ifstream& plik, int& szerokosc, int& wysokosc, int& maksWartoscKoloru, int& uniqueColorsCount, string& results, string& format);//main calculations
+void clearConsole() 
+{
+    std::cout << "\033[2J\033[1;1H";
+}
 
 int main()//main program
  {
     string answer;
     do {
+        clearConsole();
         string filename = getFilenameFromUser();
         processImageFile(filename);//passing filename to main logic
         cout << "Do you want to load another file (yes/no): ";
