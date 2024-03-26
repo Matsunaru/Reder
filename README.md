@@ -21,17 +21,17 @@ This is a console program for processing image files in formats PPM, PGM, and PB
 ## Example
 Enter the file name: example.ppm
 
-File format: P3
-Image width: 200
-Image height: 500
-Number of unique colors: 500 colors
-Color details:
-255 255 255 - 100
-0 0 0 - 200
-...
-Maximum color value: 255
+- File format: P3
+- Image width: 200
+- Image height: 500
+- Number of unique colors: 500 colors
+- Color details:
+- 255 255 255 - 100
+- 0 0 0 - 200
+- ...
+- Maximum color value: 255
 
-Do you want to load another file (yes/no):
+- Do you want to load another file (yes/no):
 
 ## File Formats Supported
 
