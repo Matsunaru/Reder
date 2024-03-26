@@ -25,7 +25,7 @@ int main()//main program
         processImageFile(filename);//passing filename to main logic
         cout << "Do you want to load another file (yes/no): ";
         cin >> answer;
-    } while (answer == "yes" || answer == "Yes" || answer == "YES");//checking if loop still should go on, or should end the program
+    } while (answer == "yes" || answer == "Yes" || answer == "YES" || answer == "y" || answer == "Y");//checking if loop still should go on, or should end the program
     cout << "End of program. " << endl;
     return 0;
 }
