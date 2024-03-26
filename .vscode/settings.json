@@ -5,6 +5,11 @@
         "iosfwd": "cpp",
         "xiosbase": "cpp",
         "iostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "utility": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "format": "cpp",
+        "istream": "cpp"
     }
 }
