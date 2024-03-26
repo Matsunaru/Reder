@@ -11,9 +11,9 @@ using namespace std;
 string getFilenameFromUser();//geting user file name
 void processImageFile(const string& filename);//main logic of program
 void processHeaderAndPixels(ifstream& plik, int& szerokosc, int& wysokosc, int& maksWartoscKoloru, int& uniqueColorsCount, string& results, string& format);//main calculations
-void clearConsole() 
+void clearConsole() //clear to don't have to much on screan
 {
-    std::cout << "\033[2J\033[1;1H";
+    cout << "\033[2J\033[1;1H";
 }
 
 int main()//main program
