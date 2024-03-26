@@ -3,21 +3,12 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include <algorithm>
 #include <set>
 #include <map>
 
 using namespace std;
 
-struct Color {
-  int r, g, b;
-};
 
-int R = 0b11110000; //240
-int G = 0b00111100; //60
-int B = 0b00001111; //15
-
-int pixel = R << 16 | G << 8 | B;
 void processHeaderAndPixels(ifstream& plik, int& szerokosc, int& wysokosc, int& maksWartoscKoloru, int& uniqueColorsCount, string& results, string& format);
 
 int main() {
@@ -82,6 +73,7 @@ int main() {
                 ss >> szerokosc >> wysokosc;
             } else if (i == 1) {
                 ss >> maksWartoscKoloru;
+                processHeaderAndPixels(plik, szerokosc, wysokosc, maksWartoscKoloru, uniqueColorsCount, results,format);
             }
         }
     } else {
@@ -111,22 +103,48 @@ void processHeaderAndPixels(ifstream& plik, int& szerokosc, int& wysokosc, int& 
     string line;
     int pixelValue;
     vector<int> pixels;
-    for (int i = 0; i<szerokosc*wysokosc; ++i){
-        plik >> pixelValue;
-        pixels.push_back(pixelValue);
-    }
     set<int> uniqueColors;
     map<int, int> counter;
-    for (int pixel : pixels)
-    {
-        uniqueColors.insert(pixel);
-        counter[pixel] += 1;
-    }
-    uniqueColorsCount = uniqueColors.size();
     stringstream output;
-    for (const auto& pair : counter)
+    int temp_r, temp_g, temp_b;
+    if(format == "P3" || format == "P6")
     {
-        output << pair.first << " - " << pair.second << "\n";
+        for (int i = 0; i<szerokosc*wysokosc; ++i){
+        plik >> temp_r >> temp_g >> temp_b;
+        pixelValue = (temp_r << 16) | (temp_g << 8) | temp_b;
+        pixels.push_back(pixelValue);
+        uniqueColors.insert(pixelValue);
+        counter[pixelValue] += 1;
+        }
+        
+        uniqueColorsCount = uniqueColors.size();
+        for (const auto& pair : counter)
+        {
+            int pixelValue = pair.first;
+            int r = (pixelValue >> 16) & 0xFF;
+            int g = (pixelValue >> 8) & 0xFF;
+            int b = pixelValue & 0xFF;
+            output << r << " " << g << " " << b << " - " << pair.second << "\n";
+        }
+        results = output.str();
     }
-    results = output.str();
+    else
+    {
+        for (int i = 0; i<szerokosc*wysokosc; ++i)
+        {
+            plik >> pixelValue;
+            pixels.push_back(pixelValue);
+        }
+        for (int pixel : pixels)
+        {
+            uniqueColors.insert(pixel);
+            counter[pixel] += 1;
+        }
+        uniqueColorsCount = uniqueColors.size();
+        for (const auto& pair : counter)
+        {
+            output << pair.first << " - " << pair.second << "\n";
+        }
+        results = output.str();
+    }
 }

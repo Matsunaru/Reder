@@ -10,6 +10,8 @@
         "map": "cpp",
         "set": "cpp",
         "format": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "vector": "cpp",
+        "xtree": "cpp"
     }
 }
