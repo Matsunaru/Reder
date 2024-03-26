@@ -48,4 +48,4 @@ If the file format is not recognized or the file cannot be opened, the program w
 
 ## License
 
-This project is licensed under the (public copyright license).123
+This project is licensed under the (public copyright license).
