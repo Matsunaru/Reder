@@ -38,7 +38,7 @@ Enter the file name: example.ppm
 - P1: Portable Bitmap (ASCII)
 - P2: Portable Graymap (ASCII)
 - P3: Portable Pixmap (ASCII)
-- P4: Portable Bitmap (Binary)//Binary will open but it will display only besic information
+- P4: Portable Bitmap (Binary)
 - P5: Portable Graymap (Binary)
 - P6: Portable Pixmap (Binary)
 
